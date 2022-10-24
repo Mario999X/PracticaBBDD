@@ -4,9 +4,9 @@ object Tables {
 
     fun createTableDepartamento() = """
         CREATE TABLE IF NOT EXISTS departamentos(
-        id String PRIMARY KEY,
+        id INTEGER PRIMARY KEY,
         nombre VARCHAR(255) NOT NULL,
-        presupuesto INTEGER NOT NULL,
+        presupuesto INTEGER NOT NULL
         )
     """.trimIndent()
 }
