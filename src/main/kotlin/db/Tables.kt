@@ -6,7 +6,7 @@ object Tables {
         CREATE TABLE IF NOT EXISTS departamentos(
         id INTEGER PRIMARY KEY,
         nombre VARCHAR(255) NOT NULL,
-        presupuesto INTEGER NOT NULL
+        presupuesto REAL NOT NULL
         )
     """.trimIndent()
 }
