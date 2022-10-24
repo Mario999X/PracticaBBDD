@@ -1,11 +1,9 @@
 package models
 
-import java.util.*
-
 data class Departamento(
-    val id: UUID = UUID.randomUUID(),
+    val id: Int =  0,
     val nombre : String = "",
-    val presupuesto: Long = 0,
+    val presupuesto: Int = 0,
     // Donde se guardan los empleados
-    val listadoEmpleado: List<Empleado>
+    //val listadoEmpleado: List<Empleado>
 )
