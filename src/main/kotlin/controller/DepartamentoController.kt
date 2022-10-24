@@ -8,12 +8,12 @@ private val logger = KotlinLogging.logger {}
 
 class DepartamentoController(private val departamentoRepository: DepartamentoRepository) {
 
-    fun getDepartamentos(): List<Departamento>{
+    fun getDepartamentos(): List<Departamento> {
         logger.info("Obteniendo Departamentos")
         return departamentoRepository.findAll()
     }
 
-    fun createDepartamento(departamento: Departamento): Departamento{
+    fun createDepartamento(departamento: Departamento): Departamento {
         logger.debug { "Creando departamentos $departamento" }
         departamentoRepository.save(departamento)
         return departamento
