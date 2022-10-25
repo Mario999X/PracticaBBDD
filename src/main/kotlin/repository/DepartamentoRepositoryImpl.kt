@@ -59,6 +59,13 @@ class DepartamentoRepositoryImpl: DepartamentoRepository {
         }
     }
 
+    override fun delete(entity: Departamento): Boolean {
+        DataBaseManager.open()
+        val result = DataBaseManager.delete("DELETE FROM departamentos WHERE id = ?", entity.id)
+        DataBaseManager.close()
+        return result == 1
+    }
+
     private fun insert(departamento: Departamento): Departamento {
         // Creamos la consulta
         val query = """INSERT INTO departamentos
