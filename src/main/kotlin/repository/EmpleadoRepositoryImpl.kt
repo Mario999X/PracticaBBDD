@@ -62,6 +62,13 @@ class EmpleadoRepositoryImpl : EmpleadoRepository {
         }
     }
 
+    override fun delete(entity: Empleado): Boolean {
+        DataBaseManager.open()
+        val result = DataBaseManager.delete("DELETE FROM empleados WHERE id = ?", entity.id)
+        DataBaseManager.close()
+        return result == 1
+    }
+
     private fun insert(empleado: Empleado): Empleado {
         // Creamos la consulta
         val query = """INSERT INTO empleados

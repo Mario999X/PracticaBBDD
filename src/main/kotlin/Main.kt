@@ -48,6 +48,10 @@ fun main() {
     val empleadoId = empleadoController.getEmpleadoById(1)
     println("Empleado con ID especifico: $empleadoId")
 
+    // Eliminamos el empleado con el ID anterior
+
+    empleadoId?.let { if (empleadoController.deleteEmpleado(it)) println("${it.nombre} ha sido eliminado, con id ${it.id}") }
+
     println("Fin de conexion con H2")
 }
 

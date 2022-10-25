@@ -33,6 +33,6 @@ fun empleadosInit() = listOf(
         id = 2,
         nombre = "Alysys",
         fechaAlta = LocalDate.parse("2000-06-15"),
-        idDepartamento = 1
+        idDepartamento = 3
     )
 )

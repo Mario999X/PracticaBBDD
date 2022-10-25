@@ -24,4 +24,14 @@ class DepartamentoController(private val departamentoRepository: DepartamentoRep
         return departamentoRepository.findById(id)
     }
 
+    fun updateDepartamento(departamento: Departamento) {
+        logger.debug { "Actualizando tenista $departamento" }
+            departamentoRepository.save(departamento)
+    }
+
+    fun deleteDepartamento(it: Departamento): Boolean {
+        logger.debug { "Borrando tenista $it" }
+        return departamentoRepository.delete(it)
+    }
+
 }

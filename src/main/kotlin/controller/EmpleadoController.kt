@@ -23,4 +23,14 @@ class EmpleadoController(private val empleadoRepository: EmpleadoRepository) {
         logger.debug { "Obteniendo tenista con uuid $id" }
         return empleadoRepository.findById(id)
     }
+
+    fun updateEmpleado(empleado: Empleado) {
+        logger.debug { "Actualizando tenista $empleado" }
+        empleadoRepository.save(empleado)
+    }
+
+    fun deleteEmpleado(it: Empleado): Boolean {
+        logger.debug { "Borrando tenista $it" }
+        return empleadoRepository.delete(it)
+    }
 }
