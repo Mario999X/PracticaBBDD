@@ -41,10 +41,10 @@ class EmpleadoRepositoryImpl : EmpleadoRepository {
         result?.let {
             if (result.next()) {
                 empleado = Empleado(
-                    id = it.getInt("id"),
                     nombre = it.getString("nombre"),
                     fechaAlta = LocalDate.parse(it.getObject("fecha_alta").toString()),
-                    idDepartamento = result.getInt("id_departamento")
+                    idDepartamento = it.getInt("id_departamento"),
+                    id = result.getInt("id"),
                 )
             }
         }

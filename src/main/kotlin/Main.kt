@@ -31,8 +31,13 @@ fun main() {
     println("Ordenado por presupuesto: \n$departamentosOrdenados")
 
     // Obtenemos un departamento con un ID
-    val departamentoId = departamentoController.getDepartamientoById(3)
+    val departamentoId = departamentoController.getDepartamientoById(1)
     println("Departamento con ID especifico: $departamentoId")
+
+    // Actualizamos el presupuesto del departamento elegido
+    departamentoId?.let { it.presupuesto = 1000.0
+    departamentoController.updateDepartamento(it)}
+    println("Departamento actualizado: $departamentoId")
 
     // --- EMPLEADOS ---
     // Cargamos a los empleados en la tabla empleados
@@ -49,14 +54,13 @@ fun main() {
     println("Empleado con ID especifico: $empleadoId")
 
     // Eliminamos el empleado con el ID anterior
-
     empleadoId?.let { if (empleadoController.deleteEmpleado(it)) println("${it.nombre} ha sido eliminado, con id ${it.id}") }
+
 
     println("Fin de conexion con H2")
 }
 
 private fun initDb() {
-
     DataBaseManager.open()
     DataBaseManager.createTables(Tables.createTableDepartamento())
     DataBaseManager.createTables(Tables.createTableEmpleado())

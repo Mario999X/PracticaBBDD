@@ -3,8 +3,8 @@ package models
 import java.time.LocalDate
 
 data class Empleado(
-    val id: Int = 0,
-    val nombre: String,
-    val fechaAlta: LocalDate,
-    val idDepartamento: Int = 0
+    var id: Int = 0,
+    var nombre: String,
+    var fechaAlta: LocalDate,
+    var idDepartamento: Int = 0
 )
