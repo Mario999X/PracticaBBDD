@@ -21,7 +21,7 @@ class EmpleadoController(private val empleadoRepository: EmpleadoRepository) {
         departamentosInit().forEach { departamento ->
             departamentoController.createDepartamento(departamento)
         }
-        val departamentos = departamentoController.getDepartamientoById(empleado.idDepartamento)
+        val departamentos = empleado.idDepartamento.let { departamentoController.getDepartamientoById(it) }
         require(departamentos != null) {"El departamento ${empleado.idDepartamento} no existe"}
         logger.debug { "Creando empleado $empleado" }
         empleadoRepository.save(empleado)
